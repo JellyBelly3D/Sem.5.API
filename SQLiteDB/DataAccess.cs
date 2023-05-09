@@ -1,40 +1,41 @@
+using System.Data;
 using Sem._5.API.Model;
 using Dapper;
-using Microsoft.Data.Sqlite;
-using System.Data.SQLite;
+
 namespace Sem._5.API.SQLiteDB;
 
 public class DataAccess : IDataAccess
 {
-    private readonly SqliteConnection _connection;
-
-    public DataAccess()
+    private IDbConnectionFactory _dbConnectionFactory;
+    public DataAccess(IDbConnectionFactory dbConnectionFactory)
     {
-        _connection = new SqliteConnection("Data Source=highscores.db;");
-        _connection.Open();
-        
-        var createTableSql = @"CREATE TABLE IF NOT EXISTS Highscores (
-                                   Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                   Time FLOAT NOT NULL,
-                                   PlayerName TEXT NOT NULL,
-                                   TrackName TEXT NOT NULL
-                              );";
-        _connection.Execute(createTableSql);
+        _dbConnectionFactory = dbConnectionFactory;
+        using (IDbConnection connection = _dbConnectionFactory.CreateConnection())
+        {
+            var createTableSql = @"CREATE TABLE IF NOT EXISTS Highscores (
+                                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    Time FLOAT NOT NULL,
+                                    PlayerName TEXT NOT NULL,
+                                    TrackName TEXT NOT NULL
+                               );";
+            connection.Execute(createTableSql);
+        }
     }
     public void PostHighscore(Highscore highscore)
     {
-        string insertSql = @"INSERT INTO Highscores (Time, PlayerName, TrackName) 
-                             VALUES (@Time, @PlayerName, @TrackName);";
-        _connection.Execute(insertSql, highscore);
+        using (IDbConnection connection = _dbConnectionFactory.CreateConnection())
+        {
+            string insertSql = @"INSERT INTO Highscores (Time, PlayerName, TrackName) 
+                                 VALUES (@Time, @PlayerName, @TrackName);";
+            connection.Execute(insertSql, highscore);
+        }
     }
     public IEnumerable<Highscore> GetHighscores()
     {
-        var selectSql = @"SELECT Time, PlayerName, TrackName FROM Highscores ORDER BY Time ASC LIMIT @Count;";
-        return _connection.Query<Highscore>(selectSql, new { Count = 10 });
-    }
-    
-    public void Dispose()
-    {
-        _connection.Dispose();
+        using (IDbConnection connection = _dbConnectionFactory.CreateConnection())
+        {
+            var selectSql = @"SELECT Time, PlayerName, TrackName FROM Highscores ORDER BY Time ASC LIMIT @Count;";
+            return connection.Query<Highscore>(selectSql, new { Count = 10 });
+        }
     }
 }
