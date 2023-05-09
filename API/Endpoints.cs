@@ -12,17 +12,15 @@ public static class Endpoints
         app.MapPost("/highscores", Create);
     }
     
-    private static IEnumerable<Highscore> Get(IDataAccess dataAccess)
+    private static async Task<IEnumerable<Highscore>> Get(IDataAccess dataAccess)
     {
-        IEnumerable<Highscore> highscores = dataAccess.GetHighscores();
+        IEnumerable<Highscore> highscores = await dataAccess.GetHighscores();
         return highscores;
     }
     
-    private static async Task<IResult> Create(IDataAccess dataAccess, [FromBody] Highscore highscore)
+    private static async Task<IResult> Create(IDataAccess dataAccess, [FromBody] Highscore newScore)
     {
-        IEnumerable<Highscore> highscores = Get(dataAccess);
-        
-        dataAccess.PostHighscore(highscore);
+        await dataAccess.PostHighscore(newScore);
         return Results.Ok();
     }
 }

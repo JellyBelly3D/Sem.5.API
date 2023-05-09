@@ -5,13 +5,13 @@ public class DataAccessMock : IDataAccess
 { 
     List<Highscore> mockScores = new List<Highscore>();
     
-    public IEnumerable<Highscore> GetHighscores()
+    public async Task<IEnumerable<Highscore>> GetHighscores()
     {
         return mockScores;
     }
 
-    public void PostHighscore(Highscore highscore)
+    public async Task PostHighscore(Highscore newScore)
     {
-        mockScores.Add(highscore);
+        mockScores.Add(newScore);
     }
 }

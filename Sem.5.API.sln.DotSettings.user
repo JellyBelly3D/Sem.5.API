@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6b173901_002De7d8_002D4d65_002Db9b1_002D44c0812529aa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=be97f905_002D9cc3_002D4bc2_002Dba6c_002Deb1ba6892991/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="UnitTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::87B08E63-6A79-4B11-9117-1810482F0EFF::net7.0::Sem._5.API.TestProject.HighscoreTests.AddWorseScoreToFullTop10&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::87B08E63-6A79-4B11-9117-1810482F0EFF::net7.0::Sem._5.API.TestProject.HighscoreTests.AddWorseScoreToNotFullTop10&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::87B08E63-6A79-4B11-9117-1810482F0EFF::net7.0::Sem._5.API.TestProject.HighscoreTests.AddBetterScoreTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
