@@ -1,3 +1,5 @@
+using System.Text.Json;
+using Microsoft.AspNetCore.Http.Json;
 using Sem._5.API;
 using Sem._5.API.MockDB;
 using Sem._5.API.SQLiteDB;
@@ -12,6 +14,11 @@ builder.Services.AddSingleton<IDbConnectionFactory, SqLiteConnectionFactory>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.Configure<JsonOptions>((options) =>
+    // null = Pascal Case
+    options.SerializerOptions.PropertyNamingPolicy = null
+);
 
 var app = builder.Build();
 

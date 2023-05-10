@@ -12,7 +12,7 @@ public class HighscoreTests
     [InlineData(10)]
     public void AddBetterScoreTest(int highscoreAmount)
     {
-        // Arrange
+        // Arrange  
         List<Highscore> testHighscores = new List<Highscore>();
         
         Highscore scoreData = new Highscore
@@ -20,7 +20,7 @@ public class HighscoreTests
             Time = 2,
             PlayerName = "Test",
             TrackName = "Test"
-        };
+        };  
         
         Highscore newBestScore = new Highscore
         {
