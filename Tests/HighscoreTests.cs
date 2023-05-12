@@ -18,15 +18,13 @@ public class HighscoreTests
         Highscore scoreData = new Highscore
         {
             Time = 2,
-            PlayerName = "Test",
-            TrackName = "Test"
+            PlayerName = "Test"
         };  
         
         Highscore newBestScore = new Highscore
         {
             Time = 1,
-            PlayerName = "Test",
-            TrackName = "Test"
+            PlayerName = "Test"
         };
         
         for(int i = 0; i < highscoreAmount; i++)
@@ -49,15 +47,13 @@ public class HighscoreTests
         Highscore scoreData = new Highscore
         {
             Time = 2,
-            PlayerName = "Test",
-            TrackName = "Test"
+            PlayerName = "Test"
         };
         
         Highscore newScore = new Highscore
         {
             Time = worseScore,
-            PlayerName = "Test",
-            TrackName = "Test"
+            PlayerName = "Test"
         };
         
         for(int i = 0; i < highscoreAmount; i++)
@@ -80,15 +76,13 @@ public class HighscoreTests
         Highscore scoreData = new Highscore
         {
             Time = 2,
-            PlayerName = "Test",
-            TrackName = "Test"
+            PlayerName = "Test"
         };
         
         Highscore newBestScore = new Highscore
         {
             Time = 3,
-            PlayerName = "Test",
-            TrackName = "Test"
+            PlayerName = "Test"
         };
         
         for(int i = 0; i < highscoreAmount; i++)

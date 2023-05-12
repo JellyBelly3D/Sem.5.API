@@ -8,19 +8,20 @@ public static class Endpoints
 {
     public static void AddEndpoints(this WebApplication app)
     {
-        app.MapGet("/highscores", Get);
-        app.MapPost("/highscores", Create);
+        app.MapGet("/highscores/{trackName}", Get);
+        app.MapPost("/highscores/{trackName}", Create);
     }
     
-    private static async Task<IEnumerable<Highscore>> Get(IDataAccess dataAccess)
+    private static async Task<IEnumerable<Highscore>> Get(IDataAccess dataAccess, string trackName)
     {
-        IEnumerable<Highscore> highscores = await dataAccess.GetHighscores();
+        IEnumerable<Highscore> highscores = await dataAccess.GetHighscores(trackName);
         return highscores;
     }
     
-    private static async Task<IResult> Create(IDataAccess dataAccess, [FromBody] Highscore newScore)
+    private static async Task<IResult> Create(IDataAccess dataAccess, string trackName, [FromBody] Highscore newScore)
     {
-        await dataAccess.PostHighscore(newScore);
+        Console.WriteLine("I here");
+        await dataAccess.PostHighscore(trackName, newScore);
         return Results.Ok();
     }
 }
