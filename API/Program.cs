@@ -16,21 +16,22 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<JsonOptions>((options) =>
-    // null = Pascal Case
-    options.SerializerOptions.PropertyNamingPolicy = null
+	// null = Pascal Case
+	options.SerializerOptions.PropertyNamingPolicy = null
 );
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
+
+
+//app.UseHttpsRedirection();
 
 app.AddEndpoints();
+
+app.MapGet("/", () => "Hello Go to /highscores/<track name>");
 
 app.Run();

@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  api:
+    container_name: HighScoreAPI
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    

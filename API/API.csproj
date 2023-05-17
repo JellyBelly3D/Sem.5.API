@@ -6,11 +6,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>Sem._5.API</RootNamespace>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>8c50584e-21b1-4ebb-ae1f-7b0f4342e90b</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Dapper" Version="2.0.123" />
         <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.5" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
